@@ -12,8 +12,8 @@ cipher = None
 def create_app():
     app = Flask(__name__)
 
-    app.config["SECRET_KEY"] = environ.get('SECRET_KEY')
-    app.config["SQLALCHEMY_DATABASE_URI"] = environ.get('DATABASE_URL')
+    app.config["SECRET_KEY"] = environ.get("SECRET_KEY")
+    app.config["SQLALCHEMY_DATABASE_URI"] = environ.get("DATABASE_URL")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     global cipher
