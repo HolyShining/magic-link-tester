@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from flask_login import login_user, logout_user
 from sqlalchemy import and_
 
@@ -26,6 +26,7 @@ def login():
     user.login_count += 1
     db.session.commit()
     login_user(user, force=True)
+    session["token_id"] = token.id
     flash("Successful log in")
     return redirect(url_for("main.index"))
 

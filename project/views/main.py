@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, session
 from flask_login import login_required
+from project.decorators import magic_token_required
 
 from project import db
 
@@ -13,6 +14,6 @@ def index():
 
 
 @main.route("/secret")
-@login_required
+@magic_token_required
 def secret():
     return render_template("secret.html")
