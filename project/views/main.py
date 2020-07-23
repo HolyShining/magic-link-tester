@@ -8,6 +8,7 @@ main = Blueprint("main", __name__)
 
 @main.route("/")
 def index():
+    """Main page"""
     return render_template("index.html")
 
 
