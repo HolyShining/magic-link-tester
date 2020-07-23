@@ -1,0 +1,12 @@
+<h1>Token generation:</h1>
+
+{% if token %}
+  <h4>Token for {{ email }}: <b>{{ token }}</b></h4>
+  <h4>login link: <a href={{ url_for('auth.login', token=token) }}>here</a></h4>
+{% endif %}
+
+<form action="generate" method="POST">
+  <label for="email">Email:</label><br>
+  <input type="text" id="email" name="email" placeholder="Email"><br>
+  <input type="submit" value="Generate">
+</form>

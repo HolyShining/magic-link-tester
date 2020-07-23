@@ -1,0 +1,19 @@
+<h1>Monitoring:</h1>
+{% for user, tokens in users %}
+  <div id="{{ user.email }}"></div>
+  User: {{ user.email }} | Logins: {{ user.login_count }} | <a href={{ url_for('tokens.remove_access', user_email=user.email) }}>Remove access</a><br>
+  Tokens: <br>
+    <ul>
+    {% for token in tokens %}
+      <li>Token: {{ token.token }} |
+        {% if token.is_valid %}
+          <a href={{ url_for('tokens.deactivate', token=token.token) }}>Deactivate</a>
+        {% else %}
+          <a href={{ url_for('tokens.activate', token=token.token) }}>Activate</a>
+        {% endif %}
+        | <a href={{ url_for('tokens.delete_token', token=token.token) }}>Delete</a></li>
+    {% endfor %}
+    </ul>
+
+{% endfor %}
+

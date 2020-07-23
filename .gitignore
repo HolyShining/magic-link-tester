@@ -1,0 +1,6 @@
+.idea/
+env/
+.pytest_cache/
+*.bak
+*.pyc
+.DS_Store

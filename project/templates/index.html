@@ -1,0 +1,14 @@
+<h1>Pages available: (with old-fashion UI 😊)</h1>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  <br>
+  <i>{{ messages[0] }}</i>
+  <br>
+{% endif %}
+{% endwith %}
+<ul>
+  <li><a href={{ url_for('auth.generate_get') }}>Token Generation</a></li>
+  <li><a href={{ url_for('monitoring.monitoring_get') }}>Users monitoring</a></li>
+  <br>
+  <li><a href={{ url_for('main.secret') }}>Secret page (only for authorized users)</a></li>
+</ul>
